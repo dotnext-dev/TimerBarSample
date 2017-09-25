@@ -9,7 +9,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <controls:TimerView Grid.Column="0" Grid.Row="0" x:Name="timerView" AutoStart="true">
+        <controls:TimerView Grid.Column="0" Grid.Row="0" x:Name="timerView">
             <controls:TimerView.ProgressBar>
                 <BoxView BackgroundColor="Maroon" />
             </controls:TimerView.ProgressBar>
