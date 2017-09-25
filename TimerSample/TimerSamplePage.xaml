@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Controls;assembly=Controls" x:Class="TimerSample.TimerSamplePage">
+
+    <Grid Margin="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:TimerView Grid.Column="0" Grid.Row="0" x:Name="timerView" AutoStart="true">
+            <controls:TimerView.ProgressBar>
+                <BoxView BackgroundColor="Maroon" />
+            </controls:TimerView.ProgressBar>
+            <controls:TimerView.TrackBar>
+                <BoxView BackgroundColor="Gray" />
+            </controls:TimerView.TrackBar>
+        </controls:TimerView>
+
+        <Label Grid.Row="1" FontSize="30"
+                Text="{Binding Path=RemainingTime, StringFormat='{0:%s}:{0:%f}', Source={x:Reference timerView}}" 
+                HorizontalOptions="Center" /> 
+        
+        <Button VerticalOptions="Start" HorizontalOptions="Start" 
+            Command="{Binding StartTimerCommand, Source={x:Reference timerView}}" 
+            Grid.Row="2" Text="Start Timer" x:Name="startBtn">
+            <Button.CommandParameter>
+                <x:TimeSpan>0:0:20</x:TimeSpan>
+            </Button.CommandParameter>
+        </Button>
+        
+        <Button VerticalOptions="Start" HorizontalOptions="Center" 
+            Command="{Binding PauseTimerCommand, Source={x:Reference timerView}}" 
+            Grid.Row="2" Text="Pause Timer" x:Name="pauseBtn" />
+        
+        <Button VerticalOptions="Start" HorizontalOptions="End" 
+            Command="{Binding StopTimerCommand, Source={x:Reference timerView}}" 
+            Grid.Row="2" Text="Stop Timer" x:Name="stopBtn" />
+</Grid>
+    
+</ContentPage>
