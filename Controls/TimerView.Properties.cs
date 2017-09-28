@@ -16,7 +16,7 @@ namespace Controls
 
 		public View TrackBar
 		{
-			protected get { return (View)GetValue(TrackBarProperty); }
+			get { return (View)GetValue(TrackBarProperty); }
 			set { SetValue(TrackBarProperty, value); }
 		}
 
@@ -27,7 +27,7 @@ namespace Controls
 
 		public View ProgressBar
 		{
-			protected get { return (View)GetValue(ProgressBarProperty); }
+			get { return (View)GetValue(ProgressBarProperty); }
 			set { SetValue(ProgressBarProperty, value); }
 		}
 
@@ -38,7 +38,7 @@ namespace Controls
 
 		public Label TimerLabel
 		{
-			protected get { return (Label)GetValue(TimerLabelProperty); }
+			get { return (Label)GetValue(TimerLabelProperty); }
 			set { SetValue(TimerLabelProperty, value); }
 		}
 
@@ -51,7 +51,7 @@ namespace Controls
 		public ICommand StartTimerCommand
 		{
 			get { return (ICommand)GetValue(StartTimerCommandProperty); }
-			protected set { SetValue(StartTimerCommandProperty, value); }
+			set { SetValue(StartTimerCommandProperty, value); }
 		}
 
 		public static readonly BindableProperty PauseTimerCommandProperty =
@@ -63,7 +63,7 @@ namespace Controls
 		public ICommand PauseTimerCommand
 		{
 			get { return (ICommand)GetValue(PauseTimerCommandProperty); }
-			protected set { SetValue(PauseTimerCommandProperty, value); }
+			set { SetValue(PauseTimerCommandProperty, value); }
 		}
 
 		public static readonly BindableProperty StopTimerCommandProperty =
@@ -75,7 +75,7 @@ namespace Controls
         public ICommand StopTimerCommand
 		{
 			get { return (ICommand)GetValue(StopTimerCommandProperty); }
-			protected set { SetValue(StopTimerCommandProperty, value); }
+			set { SetValue(StopTimerCommandProperty, value); }
 		}
 
 		public static readonly BindableProperty RemainingTimeProperty =
@@ -87,10 +87,10 @@ namespace Controls
 		public TimeSpan RemainingTime
 		{
 			get { return (TimeSpan)GetValue(RemainingTimeProperty); }
-			protected set { SetValue(RemainingTimeProperty, value); }
+			set { SetValue(RemainingTimeProperty, value); }
 		}
 
-		public static readonly BindableProperty AutoStartProperty =
+	public static readonly BindableProperty AutoStartProperty =
             BindableProperty.Create(
                 "AutoStart", typeof(bool), typeof(TimerView),
                 defaultValue: default(bool));
@@ -121,7 +121,7 @@ namespace Controls
     public bool IsTimerRunning
     {
         get { return (bool)GetValue(IsTimerRunningProperty); }
-        protected set { SetValue(IsTimerRunningProperty, value); }
+        set { SetValue(IsTimerRunningProperty, value); }
     }
 
     private static void OnIsTimerRunningChanged(BindableObject bindable, object oldValue, object newValue)
